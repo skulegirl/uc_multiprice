@@ -1,0 +1,1 @@
+This is a customized version of uc_multiprice for BDW. It contains custom code to use msdropdown libraries and images to select the country that the currency should be used for. Enable the masquerade block to access this dropdown. 
