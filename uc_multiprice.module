@@ -810,6 +810,7 @@ function uc_multiprice_country_masquerade_form2($form, &$form_state) {
 
   $cur_country = uc_multiprice_country_id();
   $selected_option = $cur_country['country_code'];
+  $default_option = uc_store_default_country();
 
   $img_glob = $module_path . '/images/*.png';
   foreach (glob($img_glob) as $image)
@@ -822,8 +823,7 @@ function uc_multiprice_country_masquerade_form2($form, &$form_state) {
       $country_details['country_iso_code_2'], $img_glob));
     if ($country_details['country_id'] == $selected_option)
     {
-      $selected_img = file_create_url(str_replace('*', $country, $img_glob));
-      $selected_option_country_icon = "<img src='$selected_img' alt='$country_name' title='$country_name' attributes='country-icon'>";
+      $default_option = $selected_option;
     }
   }
 
@@ -846,7 +846,7 @@ function uc_multiprice_country_masquerade_form2($form, &$form_state) {
 
   $form['country_dropdown_select'] = array(
     '#type' => 'select',
-    '#default_value' => isset($selected_option) ? $selected_option : key($options),
+    '#default_value' => $default_option,
     '#options' => $options,
     '#attributes' => array(
       'style' => 'width:150px',
