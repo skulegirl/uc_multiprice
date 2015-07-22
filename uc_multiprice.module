@@ -849,7 +849,7 @@ function uc_multiprice_country_masquerade_form2($form, &$form_state) {
     '#default_value' => $default_option,
     '#options' => $options,
     '#attributes' => array(
-      'style' => 'width:150px',
+      'style' => 'width:140px; font-size:small',
       'class' => array('country-dropdown-select-element'),
       'id' => 'country-dropdown-select-country',
     ),
