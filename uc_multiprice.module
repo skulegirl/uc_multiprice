@@ -334,6 +334,7 @@ function uc_multiprice_node_load($nodes, $types) {
 function uc_multiprice_uc_order($op, &$order, $arg2) {
   switch ($op) {
     case 'new':
+    case 'presave': // Need to do not just on new orders, but if currency changes
       // Save current user country to order
       $order->currency = $_SESSION['uc_multiprice']['currency_code'];
       $order->data['uc_multiprice_country'] = $_SESSION['uc_multiprice']['country_code'];
