@@ -487,7 +487,6 @@ function uc_multiprice_current_currency() {
  * Show a price with a currency sign in mind.
  */
 function theme_uc_multiprice($variables) {
-  dd($variables, 'variables');
   if (!empty($variables['currency_code'])) {
     $currency_sign = uc_multiprice_get_currency_sign($variables['currency_code']);
   }
