@@ -816,7 +816,8 @@ function uc_multiprice_country_masquerade_form2($form, &$form_state) {
   foreach (glob($img_glob) as $image)
   {
     $country = basename($image, '.png');
-    $country_details = array_shift(uc_get_country_data(array('country_iso_code_2' => $country)));
+    $country_data = uc_get_country_data(array('country_iso_code_2' => $country));
+    $country_details = array_shift($country_data);
     $country_name = $country_details['country_name'];
     $options += array($country_details['country_id'] => $country_name);
     $js_settings['countryicons'][$country_details['country_id']] = file_create_url(str_replace('*', 
